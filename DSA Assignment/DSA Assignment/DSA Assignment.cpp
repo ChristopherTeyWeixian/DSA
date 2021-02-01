@@ -1,20 +1,43 @@
-// DSA Assignment.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include<string>
+#include "BusStop.h"
+using namespace std;
+void displayMenu();
 
 int main()
 {
-    std::cout << "Hello !\n";
+    List busstop;
+    string s1 = "King Albert";
+    string s2 = "Sengkang Interchange";
+    string s3 = "WaterWay Park";
+    string s4 = "Clementi";
+    string s5 = "Bukit Batok";
+    string s6 = "Ngee Ann Poly";
+    busstop.add(s1);
+    busstop.add(s2);
+    busstop.add(s3);
+    busstop.add(s4);
+    busstop.add(s5);
+    busstop.add(s6);
+    
+    List bus74;
+    int option = 1;
+    while (option != 0) 
+    {
+        displayMenu();
+        cin >> option;
+        if (option == 1) 
+        {
+            busstop.print();
+        }
+    }
+    
+        
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void displayMenu() 
+{
+    cout << "[1] Display all BusStop"<<endl;
+    cout << "[0] Exit program" << endl;;
+    cout << "Enter in your option";
+}
