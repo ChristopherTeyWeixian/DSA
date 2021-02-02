@@ -10,9 +10,10 @@ class List
 private:
 	struct Node
 	{
-		ItemType item;	// item
-		Node* next;	// pointer pointing to next item
+		ItemType item;
+		Node* next;
 	};
+
 	Node* firstNode;	// point to the first item
 	int  size;		// number of items in the list
 
@@ -26,6 +27,7 @@ public:
 	// add an item to the back of the list (append)
 	bool add(ItemType item);
 
+	bool search(ItemType item);
 	// add an item at a specified position in the list (insert)
 	bool add(int index, ItemType item);
 
