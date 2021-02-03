@@ -10,9 +10,10 @@ class List
 private:
 	struct Node
 	{
-		ItemType item;	// item
-		Node* next;	// pointer pointing to next item
+		ItemType item;
+		Node* next;
 	};
+
 	Node* firstNode;	// point to the first item
 	int  size;		// number of items in the list
 

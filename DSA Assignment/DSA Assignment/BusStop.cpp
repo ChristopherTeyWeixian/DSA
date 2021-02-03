@@ -35,6 +35,29 @@ bool List::add(ItemType item)
 
 	return true;
 }
+bool List::search(ItemType item) 
+{
+	if (firstNode==NULL) 
+	{
+		return false;
+	}
+	else
+	{
+		Node* currentNode = firstNode;
+		while (currentNode->item != item) 
+		{
+			currentNode = currentNode->next;
+		}
+		if (currentNode->item != item) 
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+}
 void List::print()
 {
 	Node* current = firstNode;
