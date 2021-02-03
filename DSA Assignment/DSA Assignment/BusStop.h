@@ -26,6 +26,7 @@ public:
 	// add an item to the back of the list (append)
 	bool add(ItemType item);
 
+	bool search(ItemType item);
 	// add an item at a specified position in the list (insert)
 	bool add(int index, ItemType item);
 

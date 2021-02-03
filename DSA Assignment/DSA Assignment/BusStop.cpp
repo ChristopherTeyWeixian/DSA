@@ -38,10 +38,34 @@ bool List::add(ItemType item)
 void List::print()
 {
 	Node* current = firstNode;
-
+	int i = 1;
 	while (current != NULL)
 	{
-		cout << current->item << endl;
+		cout <<"["<<i<<"]"<< current->item << endl;
+		i++;
 		current = current->next;
+	}
+}
+bool List::search(ItemType bitem)
+{
+	if (firstNode == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		Node* current = firstNode;
+		while (current->item != (bitem) )
+		{
+			current = current->next;
+		}
+		if (current->item != bitem) 
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }
