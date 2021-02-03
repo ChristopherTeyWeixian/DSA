@@ -52,7 +52,9 @@ int main()
             //search for any existing Bus Stop name
             if (busstop.search(n) == false)
             {
+                cout << "asd" << endl;
                 busstop.add(n);
+                displayMenu();
             }
             else
             {
