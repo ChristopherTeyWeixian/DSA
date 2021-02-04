@@ -1,6 +1,9 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include<algorithm>
+#include <cstring>
+#include <cstdio>
 using namespace std;
 
 typedef string ItemType;

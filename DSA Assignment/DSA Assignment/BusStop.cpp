@@ -9,6 +9,8 @@ List::~List() {}
 
 bool List::add(ItemType item)
 {
+	//make sure that everything is capitalize
+	transform(item.begin(), item.end(), item.begin(), ::toupper);
 	Node* newNode = new Node;
 	newNode->item = item;
 	newNode->next = NULL;
@@ -34,6 +36,11 @@ bool List::add(ItemType item)
 	size++; //Increase size by 1
 
 	return true;
+}
+
+void remove(int index) 
+{
+
 }
 void List::print()
 {
@@ -68,4 +75,47 @@ bool List::search(ItemType bitem)
 			return true;
 		}
 	}
+}
+void List::remove(int index)
+{
+	if (0 < index <= size)// make sure the index is more than 0 and does not exceed the current size
+	{
+		Node* temp1 = firstNode;
+
+		if (index == 1)
+		{
+			firstNode = temp1->next;
+		}
+
+		else
+		{
+			int i;
+			for (i = 0; i < index - 2; i++)
+			{
+				temp1 = temp1->next;
+			}
+
+			Node* temp2 = temp1->next;
+			temp1->next = temp2->next;
+		}
+
+		size--;
+	}
+}
+
+ItemType List::get(int index)
+{
+	bool success = (index >= 0) && (index <= size);
+	Node* temp = firstNode;
+	if (success) 
+	{
+		int counter = 1;
+		while(counter!=index)
+		{
+			temp = temp->next;
+			counter++;
+		}
+		return (temp->item);
+	}
+		
 }
