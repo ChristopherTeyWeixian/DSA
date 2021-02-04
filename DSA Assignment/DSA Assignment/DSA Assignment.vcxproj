@@ -140,12 +140,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bus.cpp" />
+    <ClCompile Include="BusDriver.cpp" />
     <ClCompile Include="BusStop.cpp" />
     <ClCompile Include="DSA Assignment.cpp" />
+    <ClCompile Include="Schedule.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryNode.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Bus.h" />
+    <ClInclude Include="BusDriver.h" />
     <ClInclude Include="BusStop.h" />
+    <ClInclude Include="Schedule.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
