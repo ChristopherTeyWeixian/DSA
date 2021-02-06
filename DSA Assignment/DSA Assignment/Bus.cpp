@@ -1,4 +1,5 @@
 //Done by: Benjamin Tey Zhi Xian(s10197846A)
+//Append
 #include "Bus.h"
 
 BList list;
@@ -89,10 +90,13 @@ bool BList::append(ItemType item, ItemTyp busstop)
 	else if (firstNode->item == item) 
 	{
 		Node* current = firstNode;
+		//check if the next node is not empty
 		while (current->next != NULL) 
 		{
+			//check if the busstop belongs to the specified bus
 			if (current->next->item != item) 
 			{
+				//stop at the position
 				break;
 			}
 			current = current->next;
@@ -163,5 +167,7 @@ bool BList::search(ItemType bitem)
 		}
 	}
 }
+
+
 
 

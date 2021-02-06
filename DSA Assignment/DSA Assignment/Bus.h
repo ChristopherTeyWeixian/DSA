@@ -33,7 +33,7 @@ public:
 	bool add(ItemType item);
 
 	
-
+	//create a bus and add a busroute to it.
 	bool append(ItemType item, ItemTyp busstop );
 
 	bool search(ItemType item);

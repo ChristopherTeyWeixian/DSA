@@ -42,11 +42,13 @@ int main()
         displayMenu();
         cin >> option;
         cout << "\n" << endl;
+        //Benjamin- display sorted list of BusStop
         if (option == "1")
         {
             busstop.print();
             cout << "\n" << endl;
         }
+        //Benjamin- adding new busstop name
         if (option == "2")
         {
             string n;
@@ -65,6 +67,7 @@ int main()
                 cout << "There is already an existing BusStop with this name" << endl;
             }
         }
+        //Benjamin - Remove BusStop
         if (option == "3") 
         {
             busstop.print();
@@ -75,22 +78,8 @@ int main()
             cout << "\n" << endl;
             busstop.print();
         }
-        if (option == "4")
-        {
-            string bn;
-            cout << "Key in the new Bus number: ";
-            cin >> bn;
-            if (bus.search(bn) == false) 
-            {
-                bus.add(bn);
-                cout << "Bus number added in successfully" << endl;
-            }
-            else
-            {
-                cout << "There is already a bus with this number" << endl;
-            }
-        }
-        if (option == "5") 
+        //Benjamin - add a BusStop to a busroute
+        if (option == "4") 
         {
             string bn;
             cout << "Key in the Bus number: ";
@@ -101,12 +90,20 @@ int main()
             cin >> bs;
             cout<<busstop.get(bs)<<endl;
             string location = busstop.get(bs);
-            bus.append(bn, location);
+            if (location == "Invalid Index")
+            {
+
+            }
+            else
+            {
+                bus.append(bn, location);
+            }
             
             
             
         }
-        if (option == "6")
+        //Benjamin-View bus route of specific bus 
+        if (option == "5")
         {
             string busnum;
             cout << "which bus route to view?";
@@ -115,7 +112,7 @@ int main()
             bus.printroute(busnum);
         }
         //Chris-View All Bus Drivers
-        if (option == "7")
+        if (option == "6")
         {
             cout << "\n View All Bus Drivers" << endl;
             cout << "=====================" << endl;
@@ -123,7 +120,7 @@ int main()
             cout << "\n" << endl;
         }
         //Chris-Add Bus Driver
-        if (option == "8")
+        if (option == "7")
         {
             string name;
             int age, ID;
@@ -153,7 +150,7 @@ int main()
             }
         }
         //Chris-Remove Bus Driver
-        if (option == "9")
+        if (option == "8")
         {
             string name;
             int ID;
@@ -175,7 +172,7 @@ int main()
         }
 
         //Chris-To Update Bus Driver's Status to Available,Unavailable
-        if (option == "10")
+        if (option == "9")
         {
             int ID;
             string status;
@@ -198,7 +195,7 @@ int main()
             
         }
         //Chris-Add Schedule to Bus Driver
-        if (option == "11")
+        if (option == "10")
         {
             string date, name;
             int ID;
@@ -230,7 +227,7 @@ int main()
             }
         }
         //Chris-To Print The Schedules
-        if (option == "12")
+        if (option == "11")
         {
             Schedule.print();
         }
@@ -250,15 +247,14 @@ void displayMenu()
     cout << "[1] Display all BusStop" << endl;
     cout << "[2] Add new BusStop" << endl;
     cout << "[3] Remove BusStop" << endl;
-    cout << "[4] Add new Bus" << endl;
-    cout << "[5] Assign bus stop to bus" << endl;
-    cout << "[6] View bus route for bus" << endl;
-    cout << "[7] View All Bus Drivers" << endl;
-    cout << "[8] Add Bus Drivers" << endl;
-    cout << "[9] Remove Bus Drivers" << endl;
-    cout << "[10] Update Bus Driver's Status" << endl;
-    cout << "[11] Add Schedule to Bus Driver" << endl;
-    cout << "[12] View All Schedule" << endl;
+    cout << "[4] Assign bus stop to bus" << endl;
+    cout << "[5] View bus route for bus" << endl;
+    cout << "[6] View All Bus Drivers" << endl;
+    cout << "[7] Add Bus Drivers" << endl;
+    cout << "[8] Remove Bus Drivers" << endl;
+    cout << "[9] Update Bus Driver's Status" << endl;
+    cout << "[10] Add Schedule to Bus Driver" << endl;
+    cout << "[11] View All Schedule" << endl;
     cout << "[0] Exit program\n" << endl;
     cout << "Enter in your option: ";
 }

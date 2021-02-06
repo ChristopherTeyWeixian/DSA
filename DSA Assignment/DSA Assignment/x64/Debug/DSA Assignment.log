@@ -1,11 +1,2 @@
-﻿  Bus.cpp
-  BusDriver.cpp
-  BusStop.cpp
-C:\Users\Benjamin\source\repos\DSA\DSA Assignment\DSA Assignment\BusStop.cpp(81,8): warning C4804: '<=': unsafe use of type 'bool' in operation
-  DSA Assignment.cpp
-  Schedule.cpp
-  Generating Code...
-C:\Users\Benjamin\source\repos\DSA\DSA Assignment\DSA Assignment\BusStop.cpp(121): warning C4715: 'List::get': not all control paths return a value
-C:\Users\Benjamin\source\repos\DSA\DSA Assignment\DSA Assignment\BusDriver.cpp(53): warning C4715: 'BST::Update': not all control paths return a value
-C:\Users\Benjamin\source\repos\DSA\DSA Assignment\DSA Assignment\Bus.cpp(135): warning C4715: 'BList::append': not all control paths return a value
+﻿  DSA Assignment.cpp
   DSA Assignment.vcxproj -> C:\Users\Benjamin\source\repos\DSA\DSA Assignment\x64\Debug\DSA Assignment.exe

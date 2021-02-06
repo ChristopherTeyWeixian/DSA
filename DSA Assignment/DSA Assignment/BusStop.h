@@ -40,6 +40,9 @@ public:
 	// get an item at a specified position of the list (retrieve)
 	ItemType get(int index);
 
+	// update bus name
+	void update(int index, ItemType item);
+
 	// check if the list is empty
 	bool isEmpty();
 

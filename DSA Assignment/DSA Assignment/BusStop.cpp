@@ -1,3 +1,5 @@
+//Done by: Benjamin Tey Zhi Xian(s10197846A)
+//add(self organising list)
 #include "BusStop.h"
 
 List::List()
@@ -24,13 +26,32 @@ bool List::add(ItemType item)
 	else //If 1st node not available, traverse to next available node
 	{
 		Node* current = firstNode;
-
+		Node* trail = NULL;
+		//tranverse list to find insert location
 		while (current->next != NULL)
 		{
-			current = current->next;
+			if (current->item >= newNode->item) 
+			{
+				break;
+			}
+			else
+			{
+				trail = current;
+				current = current->next;
+			}
 		}
 
-		current->next = newNode;
+		//case 2 -insert at firstnode(not empty)
+		if (current == firstNode) 
+		{
+			newNode->next = firstNode;
+			firstNode = newNode;
+		}
+		else
+		{
+			newNode->next = current;
+			trail->next = newNode;
+		}
 	}
 
 	size++; //Increase size by 1
@@ -53,6 +74,7 @@ void List::print()
 		current = current->next;
 	}
 }
+//search busstop name
 bool List::search(ItemType bitem)
 {
 	if (firstNode == NULL)
@@ -62,14 +84,17 @@ bool List::search(ItemType bitem)
 	else
 	{
 		Node* current = firstNode;
+		//tranverse through the list and check if the busname and stop just before the null
 		while (current->item != (bitem) && current->next!=NULL)
 		{
 			current = current->next;
 		}
+		//if the last node is not equal to the bitem
 		if (current->item != bitem) 
 		{
 			return false;
 		}
+		//Else meaning that the last node is the seach item
 		else
 		{
 			return true;
@@ -103,19 +128,48 @@ void List::remove(int index)
 	}
 }
 
+//get BusStop name based on index
 ItemType List::get(int index)
 {
+	// make sure it does not exceed the list size
 	bool success = (index >= 0) && (index <= size);
 	Node* temp = firstNode;
 	if (success) 
 	{
+		//a int to keep track of index
 		int counter = 1;
+		//tranverse through the list until it reach the index
 		while(counter!=index)
 		{
 			temp = temp->next;
 			counter++;
 		}
+		//return the index
 		return (temp->item);
 	}
-		
+	//If it exceed the list size return invalid
+	else
+	{
+		return "Invalid Index";
+	}
+}
+
+void List::update(int index, ItemType item)
+{
+	// make sure it does not exceed the list size
+	bool success = (index >= 0) && (index <= size);
+	Node* temp = firstNode;
+	if (success)
+	{
+		//a int to keep track of index
+		int counter = 1;
+		//tranverse through the list until it reach the index
+		while (counter != index)
+		{
+			temp = temp->next;
+			counter++;
+		}
+		//return the index
+		temp->item = item;
+	}
 }
