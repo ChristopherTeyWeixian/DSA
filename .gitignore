@@ -2,7 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-/DSA Assignment/.vs/DSA Assignment/v16/ipch/AutoPCH/8989c869dd7f0d2f
-/DSA Assignment/.vs/DSA Assignment/v16
-/DSA Assignment/DSA Assignment
+Browse.VC.opendb
