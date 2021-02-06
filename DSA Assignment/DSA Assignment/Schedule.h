@@ -1,3 +1,5 @@
+//Done by Christopher Tey(S10193226C)
+//Add Function,Print
 #pragma once
 #include<string>
 #include<iostream>
@@ -12,8 +14,7 @@ private:
 	struct Node
 	{
 		ItemType date;	// data item
-		ItemType2 starttime, endtime, bus, ID;
-		ItemType Driver;
+		ItemType2 starttime, endtime, bus, ID; //Data for start time, end time, bus , ID
 		Node* prev;// pointer pointing to prev item	
 		Node* next;// pointer pointing to next item
 	};
@@ -24,20 +25,27 @@ public:
 	ScheduleList();		// constructor
 	~ScheduleList();		// distructor
 
-	// add an item to the back of the list (append)
+	// add an item to the front of the list (append)
+	//Input Parameters: ID,Date,Bus, start time and end time
 	// pre : size < MAX_SIZE
-	// post: item is added to the back of the list
+	// post: item is added to the front of the list
 	//       size of list is increased by 1
-	bool add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime, ItemType Driver);
+	//return true when done
+	bool add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime);
 
 
-	// remove an item at a specified position in the list
-	// pre : 0 <= index < size
-	// post: item is removed the specified position in the list
+	// remove an item in the list
+	//Input Parameters: ID,Date,Bus and start time
+	// pre : size < MAX_SIZE
+	// post: item is removed in the list
 	//       items after the position are shifted forward by 1 position
 	//       size of list is decreased by 1
 	void remove(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime);
 
+	// check if schedule exist
+	//Input Parameters: Index,ID,Date,Bus, start time and end time
+	// pre : size<MAX_SIZE
+	// post: Overwrite the node with the new information
 	void update(int index, ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime);
 
 	// check if the list is empty
@@ -55,12 +63,11 @@ public:
 
 	//------------------- Other useful functions -----------------
 
-	// display the items in the list
+	// display the latest 14 schedules in the list
 	void print();
 
+	//search if the schedule already exist.
+	//Input Parameters: ID,Date,Bus, start time and end time
+	//return true if found, else false
 	bool search(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime);
-
-
-	// void replace(int index, ItemType item);
-	// int search(ItemType item);
 };

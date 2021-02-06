@@ -138,7 +138,7 @@ int main()
             else {
                 cout << "Enter Bus Driver's Age: ";
                 cin >> age;
-                if (age < 18)
+                if (age < 18) //check if it meets the legal age to work
                 {
                     cout << "Too Young to be a Bus Driver\n" << endl;
                 }
@@ -184,10 +184,17 @@ int main()
             cin >> ID;
             BinaryNode* p = BusDriver.search(ID, "");
             if (p != NULL) {
-                cout << "Enter The Working Status of this Bus Driver:";
+                cout << "Enter The Working Status of this Bus Driver(Available / Unavailable):";
                 cin >> status;
-                BusDriver.Update(ID, status);
-                cout << ID << "'s working status has been Changed\n" << endl;
+                if (status == "Available" || status == "Unavailable")
+                {
+                    BusDriver.Update(ID, status);
+                    cout << ID << "'s working status has been Changed\n" << endl;
+
+                }
+                else {
+                    cout << "Invaild Status" << endl;
+                }
             }
             else {
                 cout << ID << " Not Found\n" << endl;
@@ -200,7 +207,9 @@ int main()
             string date, name;
             int ID;
             int bus, starttime, endtime;
-
+            cout << "\nAll Bus Drivers" << endl;
+            cout << "=====================" << endl;
+            BusDriver.inorder();
             cout << "Enter Bus Driver's ID: ";
             cin >> ID;
 
@@ -218,7 +227,7 @@ int main()
                 cout << "Enter the Ending Time for the shift(24-hr format): ";
                 cin >> endtime;
 
-                Schedule.add(ID, date, bus, starttime, endtime, "");
+                Schedule.add(ID, date, bus, starttime, endtime);
                 cout << "Schedule Added to Bus Driver ID " << ID << "\n" << endl;
             }
             else
@@ -231,7 +240,7 @@ int main()
         {
             Schedule.print();
         }
-
+        
         //End the Program
         if (option == "0") 
         {

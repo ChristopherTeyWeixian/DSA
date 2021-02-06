@@ -1,5 +1,6 @@
 #include "Schedule.h"
-
+//Done by Christopher Tey(S10193226C)
+//Add Function,Print
 ScheduleList::ScheduleList()
 {
 	firstNode = NULL;
@@ -8,7 +9,8 @@ ScheduleList::ScheduleList()
 
 ScheduleList::~ScheduleList() {}
 
-bool ScheduleList::add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime, ItemType Driver)
+//Adding of Schedue to the member ID
+bool ScheduleList::add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime)
 {
 	Node* newNode = new Node;
 	newNode->ID = ID;
@@ -16,7 +18,6 @@ bool ScheduleList::add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 sta
 	newNode->bus = bus;
 	newNode->starttime = starttime;
 	newNode->endtime = endtime;
-	newNode->Driver = Driver;
 	newNode->prev = NULL;
 	newNode->next = NULL;
 
@@ -26,7 +27,7 @@ bool ScheduleList::add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 sta
 		firstNode = newNode;
 	}
 
-	else //If 1st node not available, traverse to next available node
+	else
 	{
 		firstNode->prev = newNode;
 		newNode->next = firstNode;
@@ -38,47 +39,30 @@ bool ScheduleList::add(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 sta
 	return true;
 }
 
-/*
 void ScheduleList::remove(ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime)
 {
-	Node* CurrentNode = firstNode;
-	while (CurrentNode != NULL)
-	{
-		CurrentNode = CurrentNode->next;
-	}
-
-	if (CurrentNode->ID == ID && CurrentNode->date == date && CurrentNode->bus == bus && CurrentNode->starttime == starttime)
-	{
-		if (firstNode->next == NULL)
-		{
-			firstNode = NULL;
-
-		}
-		else {
-			CurrentNode->prev->next = CurrentNode->next;
-			CurrentNode->next->prev = CurrentNode->prev;
-		}
-
-	}
-
-	delete CurrentNode;
-	size -= 1;
 }
-*/
+
+
+//Update existing schedule with new information
 void ScheduleList::update(int index, ItemType2 ID, ItemType date, ItemType2 bus, ItemType2 starttime, ItemType2 endtime) {}
+
+//check if list is empty or not
 bool ScheduleList::isEmpty() { return size == 0; }
 
+//return size of list
 int ScheduleList::getLength() { return size; }
 
+//display 14 latest schedule 
 void ScheduleList::print()
 {
+	int capdisplay = 0;
 	Node* current = firstNode;
 	cout << "Schedule List" << endl;
 	cout << "==================" << endl;
-	while (current != NULL)
+	while (current != NULL && capdisplay < size * 14)
 	{
 		cout << "ID:" << current->ID << endl;
-		cout << current->Driver << endl;
 		cout << "Date:" << current->date << endl;
 		cout << "Bus:" << current->bus << endl;
 		cout << "Start Shift:" << current->starttime << endl;
