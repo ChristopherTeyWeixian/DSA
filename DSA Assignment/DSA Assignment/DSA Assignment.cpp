@@ -88,20 +88,31 @@ int main()
             int bs;
             cout << "Key in the index of the BusStop: ";
             cin >> bs;
-            cout<<busstop.get(bs)<<endl;
-            string location = busstop.get(bs);
-            if (location == "Invalid Index")
+            if (bs == 0)
             {
-
+                cin.clear();
             }
             else
             {
-                bus.append(bn, location);
+                cout << busstop.get(bs) << endl;
+                string location = busstop.get(bs);
+                if (location == "Invalid Index")
+                {
+
+                }
+                else
+                {
+                    bus.append(bn, location);
+                }
+            
             }
+                
+         }
+
+           
             
             
-            
-        }
+        
         //Benjamin-View bus route of specific bus 
         if (option == "5")
         {
