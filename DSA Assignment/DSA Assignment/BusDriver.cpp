@@ -1,4 +1,6 @@
-// BST.cpp
+// BusDriver.cpp
+//Done by Christopher Tey(S10193226C)
+//insert and update features
 #include<iostream>
 using namespace std;
 
@@ -17,6 +19,7 @@ BinaryNode* BST::search(ItemType2 target, ItemType1 name)
 	return search(root, target, name);
 }
 
+//Search an item in the binary Search tree
 BinaryNode* BST::search(BinaryNode* t, ItemType2 target, ItemType1 name)
 {
 	if (t == NULL)		// item not found
@@ -30,25 +33,6 @@ BinaryNode* BST::search(BinaryNode* t, ItemType2 target, ItemType1 name)
 				return search(t->left, target, name); 	// search in left subtree
 			else
 				return search(t->right, target, name);  	// search in right subtree
-	}
-}
-BinaryNode* BST::Update(ItemType2 target, ItemType1 status)
-{
-	return Update(root, target, status);
-}
-
-BinaryNode* BST::Update(BinaryNode* t, ItemType2 target, ItemType1 status)
-{
-
-	if (t->ID == target)
-	{
-		t->status = status;
-	}
-	else {
-		if (target < t->ID)
-			return Update(t->left, target, status); 	// search in left subtree
-		else
-			return Update(t->right, target, status);  	// search in right subtree
 	}
 }
 
@@ -77,6 +61,80 @@ void BST::insert(BinaryNode*& t, ItemType2 ID, ItemType1 Name, ItemType2 age, It
 		else
 			insert(t->right, ID, Name, age, status); 	// insert in right subtree
 }
+
+//Update an item's node in the binary search tree
+BinaryNode* BST::Update(ItemType2 target, ItemType1 status)
+{
+	return Update(root, target, status);
+}
+
+//Update an item's node in the binary search tree
+BinaryNode* BST::Update(BinaryNode* t, ItemType2 target, ItemType1 status)
+{
+
+	if (t->ID == target)
+	{
+		t->status = status;
+	}
+	else {
+		if (target < t->ID)
+			return Update(t->left, target, status); 	// search in left subtree
+		else
+			return Update(t->right, target, status);  	// search in right subtree
+	}
+}
+
+//delete an item from the binary search tree
+void BST::remove(ItemType2 target) { remove(root, target); }
+
+void BST::remove(BinaryNode*& t, ItemType2 target)
+{
+	if (t != NULL)
+	{
+		if (target < t->ID)			// search in left subtree
+			remove(t->left, target);
+		else if (target > t->ID)	// search in right subtree
+			remove(t->right, target);
+		else						// item == t->item (found) - base case
+		{
+			if (t->left == NULL && t->right == NULL) // case 1 : node has 0 child
+			{
+				BinaryNode* temp = t;	// node to be deleted
+				t = NULL;
+				delete temp;			// delete the node
+			}
+			else if (t->left == NULL)	// case 2 : node has 1 child
+			{
+				BinaryNode* temp = t;	// node to be deleted
+				if (t == root)			// current node is root
+					root = t->right;
+				else
+					t = t->right;
+				delete temp;			// delete the node
+			}
+			else if (t->right == NULL)	// case 2 : node has 1 child
+			{
+				BinaryNode* temp = t;	// node to be deleted
+				if (t == root)			// current node is root
+					root = t->left;
+				else
+					t = t->left;
+				delete temp;			// delete the node
+			}
+			else 						// case 3 : node has 2 children
+			{
+				BinaryNode* successor = t->left;
+				while (successor->right != NULL)	// search for right most node in left sub-tree
+					successor = successor->right;
+				ItemType2 item = successor->ID;
+				remove(t->left, item);	// delete the successor (either case 1 or case 2)
+				t->ID = item;			// replace the node’s item with that of the successor
+			}
+		}
+	}
+}
+
+
 
 // traverse the binary search tree in inorder
 void BST::inorder()
@@ -148,55 +206,6 @@ void BST::postorder(BinaryNode* t)
 // check if the binary search tree is empty
 bool BST::isEmpty() { return (root == NULL); }
 
-// delete an item from the binary search tree
-void BST::remove(ItemType2 target) { remove(root, target); }
-
-void BST::remove(BinaryNode*& t, ItemType2 target)
-{
-	if (t != NULL)
-	{
-		if (target < t->ID)			// search in left subtree
-			remove(t->left, target);
-		else if (target > t->ID)	// search in right subtree
-			remove(t->right, target);
-		else						// item == t->item (found) - base case
-		{
-			if (t->left == NULL && t->right == NULL) // case 1 : node has 0 child
-			{
-				BinaryNode* temp = t;	// node to be deleted
-				t = NULL;
-				delete temp;			// delete the node
-			}
-			else if (t->left == NULL)	// case 2 : node has 1 child
-			{
-				BinaryNode* temp = t;	// node to be deleted
-				if (t == root)			// current node is root
-					root = t->right;
-				else
-					t = t->right;
-				delete temp;			// delete the node
-			}
-			else if (t->right == NULL)	// case 2 : node has 1 child
-			{
-				BinaryNode* temp = t;	// node to be deleted
-				if (t == root)			// current node is root
-					root = t->left;
-				else
-					t = t->left;
-				delete temp;			// delete the node
-			}
-			else 						// case 3 : node has 2 children
-			{
-				BinaryNode* successor = t->left;
-				while (successor->right != NULL)	// search for right most node in left sub-tree
-					successor = successor->right;
-				ItemType2 item = successor->ID;
-				remove(t->left, item);	// delete the successor (either case 1 or case 2)
-				t->ID = item;			// replace the node’s item with that of the successor
-			}
-		}
-	}
-}
 
 // ---------------- to be implemented -------------------
 
