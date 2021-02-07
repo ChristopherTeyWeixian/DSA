@@ -63,7 +63,7 @@ public:
 
 	//------------------- Other useful functions -----------------
 
-	// display the latest 14 schedules in the list
+	// display the schedules in the list from the latest one
 	void print();
 
 	//search if the schedule already exist.

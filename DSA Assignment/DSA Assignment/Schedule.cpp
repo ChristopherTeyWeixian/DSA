@@ -53,14 +53,13 @@ bool ScheduleList::isEmpty() { return size == 0; }
 //return size of list
 int ScheduleList::getLength() { return size; }
 
-//display 14 latest schedule 
+// display the schedules in the list from the latest one
 void ScheduleList::print()
 {
-	int capdisplay = 0;
 	Node* current = firstNode;
 	cout << "Schedule List" << endl;
 	cout << "==================" << endl;
-	while (current != NULL && capdisplay < size * 14)
+	while (current != NULL)
 	{
 		cout << "ID:" << current->ID << endl;
 		cout << "Date:" << current->date << endl;

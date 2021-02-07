@@ -136,6 +136,9 @@ int main()
         {
             string name;
             int age, ID;
+            cout << "\n View All Bus Drivers" << endl;
+            cout << "=====================" << endl;
+            BusDriver.inorder();
             cout << "Enter Unique ID number for the Bus Driver:";
             cin >> ID;
 
@@ -201,7 +204,7 @@ int main()
                 if (status == "Available" || status == "Unavailable")
                 {
                     BusDriver.Update(ID, status);
-                    cout << ID << "'s working status has been Changed\n" << endl;
+                    cout << "Working status Of Bus Driver ID "<<ID << " has been Changed\n" << endl;
 
                 }
                 else {
@@ -271,8 +274,8 @@ void displayMenu()
     cout << "[4] Assign bus stop to bus" << endl;
     cout << "[5] View bus route for bus" << endl;
     cout << "[6] View All Bus Drivers" << endl;
-    cout << "[7] Add Bus Drivers" << endl;
-    cout << "[8] Remove Bus Drivers" << endl;
+    cout << "[7] Add Bus Driver" << endl;
+    cout << "[8] Remove Bus Driver" << endl;
     cout << "[9] Update Bus Driver's Status" << endl;
     cout << "[10] Add Schedule to Bus Driver" << endl;
     cout << "[11] View All Schedule" << endl;
