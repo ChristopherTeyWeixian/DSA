@@ -103,13 +103,15 @@ bool List::search(ItemType bitem)
 }
 void List::remove(int index)
 {
-	if (0 < index <= size)// make sure the index is more than 0 and does not exceed the current size
+	if ((index >= 0) && (index <= size))// make sure the index is more than 0 and does not exceed the current size
 	{
+		cout << "asd" << endl;
 		Node* temp1 = firstNode;
 
 		if (index == 1)
 		{
 			firstNode = temp1->next;
+			size--;
 		}
 
 		else
@@ -122,9 +124,12 @@ void List::remove(int index)
 
 			Node* temp2 = temp1->next;
 			temp1->next = temp2->next;
+			size--;
 		}
-
-		size--;
+	}	
+	else
+	{
+		cout << "Invalid Index" << endl;
 	}
 }
 
