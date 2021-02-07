@@ -173,7 +173,7 @@ int main()
             cout << "=====================" << endl;
             BusDriver.inorder();
 
-            cout << "Enter Bus Driver's ID: ";
+            cout << "Enter Bus Driver's ID to remove: ";
             cin >> ID;
 
             BinaryNode* p = BusDriver.search(ID, name);
