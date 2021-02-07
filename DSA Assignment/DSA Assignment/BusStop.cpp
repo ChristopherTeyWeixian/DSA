@@ -105,7 +105,6 @@ void List::remove(int index)
 {
 	if ((index > 0) && (index <= size))// make sure the index is more than 0 and does not exceed the current size
 	{
-		cout << "asd" << endl;
 		Node* temp1 = firstNode;
 
 		if (index == 1)

@@ -77,6 +77,7 @@ int main()
             busstop.remove(i);
             cout << "\n" << endl;
             busstop.print();
+            cin.clear();
         }
         //Benjamin - add a BusStop to a busroute
         if (option == "4") 
